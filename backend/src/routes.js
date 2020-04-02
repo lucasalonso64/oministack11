@@ -1,21 +1,23 @@
 const express = require('express');
 
-const connection = require('./database/connection');
-const crypto = require('crypto');
-
 const OngControllers = require('./controllers/OngControllers');
-
-
+const incidentsControllers = require('./controllers/incidentsControllers');
+const ProfileControllers = require('./controllers/ProfileControllers');
+const SessionControllers = require('./controllers/SessionControllers');
 
 const routes = express.Router();
 
-routes.get('/ongs', async (req, res) => {
-    const ongs = await connection('ongs');
+routes.post('/sessions', SessionControllers.create)
 
-    return res.json(ongs);
-})
 
- //routes.get('/ongs', OngControllers.index);
+routes.get('/ongs', OngControllers.index);
 routes.post('/ongs', OngControllers.create);
+
+routes.get('/profile', ProfileControllers.index);
+
+routes.get('/incidents', incidentsControllers.index);
+routes.post('/incidents', incidentsControllers.create);
+routes.delete('/incidents/:id', incidentsControllers.delete);
+
 
 module.exports = routes;

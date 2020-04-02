@@ -1,5 +1,6 @@
 // Update with your config settings.
 
+
 module.exports = {
 
   development: {
@@ -8,11 +9,11 @@ module.exports = {
      // filename: './src/database/migrations'
      //filename: './db.sqlite'
 
-      filename: '../src/database/db.sqlite'
-     //filename: 'home/alonso/projetos/ominiStack11.0/semanaOministack11/backend/src/database/db.sqlite'
+     // filename: '../src/database/db.sqlite'
+    filename: '/home/alonso/projetos/oministack11/backend/src/database/db.sqlite'
     },
     migrations: {
-      directory: '../src/database/migrations'
+      directory: './src/database/migrations'
     },
     useNullAsDefault: true,
   },
